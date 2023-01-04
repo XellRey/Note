@@ -5,8 +5,4 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return render(request, 'note/index.html')
-
-
-def note(request, note_id):
-    return HttpResponse("Yours Notes:" % note_id)
+    return HttpResponse("123")
