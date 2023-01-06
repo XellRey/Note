@@ -1,17 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Note
 from django.http import Http404, HttpResponseRedirect
+from .forms import Note_form
+
 # Create your views here.
 
 
 def index(request):
-    latest_note = Note.objects.order_by('-pub_date')
-    return render(request, 'note/index.html', {'latest_note': latest_note})
+    if request.method == 'POST':
+        form = Note_form(request.POST)
+        if form.is_valid():
+            form.save()
 
-def detail(request, note_id):
-    try:
-        n = Note.objects.get(id = note_id)
-    except:
-        raise Http404("Note not found")
+    form = Note_form()
 
-    return render(request, 'note/detail.html', {'note': n})
+    data = {
+        'form': form
+    }
+    return render(request, 'note/index.html', data)
+
+

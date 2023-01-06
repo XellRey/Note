@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
-        {% if  latest_note %}
-            {% for n in  latest_note %}
-                <a href="{% url 'note:detail' n.id %}">{{n.note_title}}</a>
-            {% endfor %}
-        {% endif %}
-    </div>
+<div class="note_list">
+      <h1>3333</h1>
+</div>
+<div class="create">
+  <form method="post" class="note_create">
+    {% csrf_token %}
+    {{form.note_title}}<br>
+    {{form.pub_date}}<br>
+    {{form.note_text}}<br>
+    <button class="btn" type="submit">Create</button>
+  </form>
+
+</div>
+
 {% endblock %}

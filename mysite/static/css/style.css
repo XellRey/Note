@@ -1,0 +1,61 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+input[type="text"] {
+  font-family: inherit; /* 1 */
+  font-size: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  margin: 0; /* 2 */
+}
+
+
+.btn{
+    font-family: 'Gemunu Libre';
+    margin-left: 80%;
+    margin-top: 1.5%;
+    border: none;
+    background-color: #FEC600;
+    width: 90px;
+    height: 31px;
+    font-size: 27px;
+    border-radius: 0.5rem;
+}
+
+.note_list{
+    border-radius: 0px 40px 0 0;
+    background-color: black;
+    width: 30vh;
+    height: 100vh;
+    float: left;
+    margin-right: 30%;
+}
+.create{
+    font-family: 'Gemunu Libre';
+    margin-top: 5%;
+    float: left;
+    width: 55vh;
+    font-size: 20px;
+}
+    .n_input{
+      background-color: #FEC600;
+      border-radius: 0.25rem;
+      border: none;
+      width: 95%;
+      height: 40px;;
+    }
+
+
+    .n_text{
+        border-width: 3px;
+        border-color: black;
+        border-radius: 0.5rem;
+        width: 95%;
+        height: 75vh;
+        font-weight: 400;
+        font-size: 20px;
+    }
