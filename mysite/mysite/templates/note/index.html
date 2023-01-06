@@ -1,18 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="note_list">
-      <h1>3333</h1>
-</div>
-<div class="create">
-  <form method="post" class="note_create">
-    {% csrf_token %}
-    {{form.note_title}}<br>
-    {{form.pub_date}}<br>
-    {{form.note_text}}<br>
-    <button class="btn" type="submit">Create</button>
-  </form>
-
-</div>
-
+    <div class="note_list">
+        <input class="search" name="Search" placeholder="Search... ">
+        {% for n in n_list %}
+            <div class="el_list">
+                <p><a href="#" class="l_title">{{n.note_title}}</a></p>
+            </div>
+        <br>
+       {% endfor %}
+    </div>
+    <div class="create">
+      <form method="post" class="note_create">
+        {% csrf_token %}
+        {{form.note_title}}<br>
+        {{form.pub_date}}<br>
+        {{form.note_text}}<br>
+        <button class="btn" type="submit">Create</button>
+      </form>
+    </div>
 {% endblock %}
+

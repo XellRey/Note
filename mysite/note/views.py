@@ -7,6 +7,7 @@ from .forms import Note_form
 
 
 def index(request):
+    n_list = Note.objects.all()
     if request.method == 'POST':
         form = Note_form(request.POST)
         if form.is_valid():
@@ -15,7 +16,8 @@ def index(request):
     form = Note_form()
 
     data = {
-        'form': form
+        'form': form,
+        'n_list': n_list
     }
     return render(request, 'note/index.html', data)
 

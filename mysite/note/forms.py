@@ -10,8 +10,9 @@ class Note_form(ModelForm):
         widgets ={
             "note_title": TextInput(attrs={
                 'class': 'n_input',
-                'placeholder': 'Name of the note...',
+                'placeholder': '           Name of the note...',
                 'style': 'margin-bottom: 20px',
+
 
 
             }),
