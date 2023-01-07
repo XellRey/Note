@@ -5,7 +5,7 @@
         <input class="search" name="Search" placeholder="Search... ">
         {% for n in n_list %}
             <div class="el_list">
-                <p><a href="#" class="l_title">{{n.note_title}}</a></p>
+                <p><a href="{% url 'notes:note' n.id %}" class="l_title">{{n.note_title}}</a></p>
             </div>
         <br>
        {% endfor %}

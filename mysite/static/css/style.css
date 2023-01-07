@@ -3,7 +3,46 @@
     margin: 0;
     padding: 0;
 }
+input::-webkit-input-placeholder {
+    color: black;
+}
 
+*::-webkit-scrollbar {
+     display: none;
+  background-color:  black;
+  border-radius: 7px;
+
+}
+    ::-webkit-scrollbar-thumb {
+        background-color: #d96200;
+        border-radius: 9em;
+        box-shadow: inset 10px 50px 30px #fcc501;
+    }
+
+
+.home {
+    margin-top: 86.5vh;
+    width: 120px;
+    height: 120px;
+    margin-left: 48vh;
+    position:fixed;
+
+}
+    .edit {
+        margin-top: 89vh;
+        width: 80px;
+        height:  80px;
+        margin-left: 28vh;
+        position:fixed;
+}
+        .trash {
+            margin-top: 89vh;
+            width: 80px;
+            height: 80px;
+            margin-left: 38vh;
+            position:fixed;
+
+}
 
 
 input[type="text"] {
@@ -15,11 +54,12 @@ input[type="text"] {
 
 
 .note_list{
+    scroll-behavior: smooth;
+    overflow: auto; height: 100vh;
     font-size: 20px;
-    border-radius: 0px 40px 0 0;
+    border-radius: 0px 30px 0 0;
     background-color: black;
     width: 30vh;
-    height: 100vh;
     float: left;
     margin-right: 50vh;
 }
@@ -53,21 +93,23 @@ input[type="text"] {
                 margin-left: 10%;
             }
 
+
 .create{
     font-family: 'Gemunu Libre';
     margin-top: 2%;
     float: left;
     width: 55vh;
     font-size: 20px;
+
 }
         .n_input{
           background-color: #FEC600;
           border-radius: 0.25rem;
           border: none;
           width: 95%;
-          height: 40px;;
+          height: 40px;
+            color: black;
         }
-
 
             .n_text{
                 border-width: 3px;

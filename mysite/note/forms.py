@@ -1,6 +1,6 @@
 from .models import Note
 from django.forms import ModelForm, TextInput, DateTimeInput, Textarea
-
+from django.utils import timezone
 
 class Note_form(ModelForm):
     class Meta:
