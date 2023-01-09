@@ -64,7 +64,7 @@ def delete(request, note_id, ):
         n.delete()
 
     except:
-        return HttpResponse("Note doesn't exists")
+        print("")
     return render(request, 'note/index.html', data)
 
 
