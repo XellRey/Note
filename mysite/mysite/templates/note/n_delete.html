@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-  <h1>1</h1>
-
+  <div class="create">
+      <form method="post" class="note_create">
+        {% csrf_token %}
+        <button class="btn" type="submit">Delete</button>
+      </form>
+    </div>
 {% endblock %}

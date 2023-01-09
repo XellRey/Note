@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
 }
+
 input::-webkit-input-placeholder {
     color: black;
 }
@@ -18,7 +19,6 @@ input::-webkit-input-placeholder {
         border-radius: 9em;
         box-shadow: inset 10px 50px 30px #fcc501;
     }
-
 
 .home {
     margin-top: 86.5vh;
@@ -100,7 +100,6 @@ input[type="text"] {
     float: left;
     width: 55vh;
     font-size: 20px;
-
 }
         .n_input{
           background-color: #FEC600;
@@ -131,3 +130,12 @@ input[type="text"] {
                     font-size: 27px;
                     border-radius: 0.5rem;
                 }
+.edit_list{
+    scroll-behavior: smooth;
+    overflow: auto; height: 100vh;
+    font-size: 20px;
+    border-radius: 0px 30px 0 0;
+    width: 30vh;
+    float: left;
+    margin-right: 45vh;
+}

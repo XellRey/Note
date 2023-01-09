@@ -12,3 +12,5 @@ class Note(models.Model):
     def __str__(self):
         return self.note_title
 
+    def get_absolute_url(self):
+        return f'/{self.id}'

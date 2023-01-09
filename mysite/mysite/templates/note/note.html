@@ -16,6 +16,6 @@
         <p>{{note.note_text}}</p>
     </div>
     <a href="{% url 'notes:index' %}"><img class="home" alt="" src="/static/img/Home.png"></a>
-    <a href=""><img class="edit" alt="" src="/static/img/edit.png"></a>
-    <a href=""><img class="trash" alt="" src="/static/img/Trash.png"></a>
+    <a href="{% url 'notes:edit' note.id%}"><img class="edit" alt="" src="/static/img/edit.png"></a>
+    <a href="{% url 'notes:delete' note.id%}"><img class="trash" alt="" src="/static/img/Trash.png"></a>
 {% endblock %}

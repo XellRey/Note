@@ -39,6 +39,17 @@ def note(request, note_id):
     return render(request, 'note/note.html', data)
 
 
+class edit(UpdateView):
+    model = Note
+    template_name = 'note/n_edit.html'
+    form_class = Note_form
+
+
+class delete(DeleteView):
+    model = Note
+    success_url = '/'
+    template_name = 'note/n_delete.html'
+
 
 
 

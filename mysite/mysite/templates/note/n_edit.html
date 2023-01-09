@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="edit_list">
 
-<h1>3</h1>
+    </div>
+    <div class="create">
+      <form method="post" class="note_create">
+        {% csrf_token %}
+        {{form.note_title}}<br>
+        {{form.pub_date}}<br>
+        {{form.note_text}}<br>
+        <button class="btn" type="submit">Edit</button>
+      </form>
+    </div>
+
+
 {% endblock %}
