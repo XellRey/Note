@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Note
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponse
 from .forms import Note_form
 from django.views.generic import DeleteView, UpdateView
 
@@ -45,11 +45,26 @@ class edit(UpdateView):
     form_class = Note_form
 
 
-class delete(DeleteView):
-    model = Note
-    success_url = '/'
-    template_name = 'note/n_delete.html'
+def delete(request, note_id, ):
+    n_list = Note.objects.all()
 
+    if request.method == 'POST':
+        form = Note_form(request.POST)
+        if form.is_valid():
+            form.save()
 
+    form = Note_form()
+
+    data = {
+        'form': form,
+        'n_list': n_list
+    }
+    try:
+        n = Note.objects.get(id=note_id)
+        n.delete()
+
+    except:
+        return HttpResponse("Note doesn't exists")
+    return render(request, 'note/index.html', data)
 
 
