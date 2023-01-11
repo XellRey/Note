@@ -1,12 +1,14 @@
+import datetime
+
 from .models import Note
-from django.forms import ModelForm, TextInput, DateTimeInput, Textarea
+from django.forms import ModelForm, TextInput, Textarea
 
 
 class Note_form(ModelForm):
     class Meta:
         model = Note
-        fields = ['note_title', 'note_text', 'pub_date']
-
+        fields = ['note_title', 'note_text']
+        pub_date = datetime.datetime.now()
         widgets = {
             "note_title": TextInput(attrs={
                 'class': 'n_input',
@@ -20,7 +22,5 @@ class Note_form(ModelForm):
                 'class': 'n_text',
 
             }),
-            'pub_date': DateTimeInput(attrs={
-                'class': 'data'
-            })
+
         }

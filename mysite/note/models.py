@@ -5,7 +5,7 @@ from django.db import models
 
 class Note(models.Model):
     note_title = models.CharField(max_length=30)
-    pub_date = models.DateTimeField('date create')
+    pub_date = models.DateTimeField(auto_now_add=True)
     note_text = models.CharField(max_length=3000)
 
     def __str__(self):
