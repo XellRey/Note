@@ -2,14 +2,18 @@
 
 {% block content %}
     <div class="note_list">
-        <input class="search" name="Search" placeholder="Search... ">
-        {% for n in n_list %}
+        <form method="get">
+            <input class="search" name="q"  placeholder="Search... ">
+        </form>
+
+         {% for n in n_list %}
             <div class="el_list">
                 <p><a href="{% url 'notes:note' n.id %}" class="l_title">{{n.note_title}}</a></p>
             </div>
         <br>
        {% endfor %}
     </div>
+
     <div class="create">
       <form method="post" class="note_create">
         {% csrf_token %}

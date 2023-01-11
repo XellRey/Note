@@ -1,14 +1,19 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import Note
-from django.http import Http404, HttpResponse
+from django.http import Http404
 from .forms import Note_form
-from django.views.generic import DeleteView, UpdateView
-
+from django.views.generic import UpdateView
+from django.db.models import Q
 # Create your views here.
 
 
 def index(request):
-    n_list = Note.objects.all()
+    if 'q' in request.GET:
+        q = request.GET['q']
+        search = Q(Q(note_title__icontains=q) | Q(note_text__icontains=q))
+        n_list = Note.objects.filter(search)
+    else:
+        n_list = Note.objects.all()
     if request.method == 'POST':
         form = Note_form(request.POST)
         if form.is_valid():
@@ -18,19 +23,24 @@ def index(request):
 
     data = {
         'form': form,
-        'n_list': n_list
+        'n_list': n_list,
     }
     return render(request, 'note/index.html', data)
 
 
 def note(request, note_id):
-    n_list = Note.objects.all()
+    if 'q' in request.GET:
+        q = request.GET['q']
+        search = Q(Q(note_title__icontains=q) | Q(note_text__icontains=q))
+        n_list = Note.objects.filter(search)
+    else:
+        n_list = Note.objects.all()
+
     try:
         n = Note.objects.get(id=note_id)
-    except:
-        raise Http404("Page not found")
 
-    form = Note_form()
+    except n.DoesNotExist:
+        raise Http404("Page not found")
 
     data = {
         'note': n,
@@ -45,8 +55,13 @@ class edit(UpdateView):
     form_class = Note_form
 
 
-def delete(request, note_id, ):
-    n_list = Note.objects.all()
+def delete(request, note_id):
+    if 'q' in request.GET:
+        q = request.GET['q']
+        search = Q(Q(note_title__icontains=q) | Q(note_text__icontains=q))
+        n_list = Note.objects.filter(search)
+    else:
+        n_list = Note.objects.all()
 
     if request.method == 'POST':
         form = Note_form(request.POST)
@@ -54,7 +69,6 @@ def delete(request, note_id, ):
             form.save()
 
     form = Note_form()
-
     data = {
         'form': form,
         'n_list': n_list
@@ -62,9 +76,7 @@ def delete(request, note_id, ):
     try:
         n = Note.objects.get(id=note_id)
         n.delete()
-
     except:
         print("")
+
     return render(request, 'note/index.html', data)
-
-
