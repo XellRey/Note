@@ -20,6 +20,12 @@ input::-webkit-input-placeholder {
         box-shadow: inset 10px 50px 30px #fcc501;
     }
 
+
+.n_date{
+    margin-left: 37vh;
+}
+
+
 .home {
     margin-top: 87.5vh;
     width: 100px;
@@ -86,12 +92,21 @@ input[type="text"] {
             text-align: left;
             background-color: white;
             border-radius: 0.3rem;
+            position: relative;
         }
             .l_title{
                 text-decoration: none;
                 color: black;
                 margin-left: 10%;
             }
+                .l_title:before{
+                    content: '';
+                    position: absolute;
+                    top: 3%;
+                    left: 0.3%;
+                    width: 24vh;
+                    height: 2.5vh;
+                }
 
 
 .create{
